@@ -3,7 +3,7 @@ import Image from "next/image"
 const UserInfo = ({userName,userDesc,userImage}) => {
     return (
         <div>
-            <div className="py-16 text-center">
+            <div className="py-12 text-center">
                 <div className="flex justify-center">
                     <Image
                         src={userImage}

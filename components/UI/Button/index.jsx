@@ -46,6 +46,7 @@ Button.propTypes = {
     "warning",
     "aquamarine",
     "darkaquamarine",
+    "purple"
   ]).isRequired,
   size: PropTypes.oneOf(["sm", "md", "lg"]).isRequired,
   LeadingIcon: PropTypes.element,
@@ -57,7 +58,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   children: "Button",
-  variant: "primary",
+  variant: "purple",
   size: "md",
   disabled: false,
   isLoading: false,

@@ -11,7 +11,7 @@ body {
   margin: 0;
   font-family: "Manrope", "sans-serif";
   color: #202020;
-  background-color: #f4fafa;
+  background-color: #f7f7f7;
 }
 
 a {
@@ -116,6 +116,9 @@ input::-webkit-inner-spin-button {
 }
 .btn-primary {
   @apply bg-green text-white h-[2.5rem] rounded-[0.25rem];
+}
+.btn-purple {
+  @apply bg-[#6418C3] text-white h-[2.5rem] rounded-[0.25rem];
 }
 
 .btn-secondary {

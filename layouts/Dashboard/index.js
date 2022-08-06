@@ -1,3 +1,4 @@
+import UserProfile from "components/UserProfile";
 import Footer from "pages/Footer/Index";
 import SideNav from "../../components/Dashboard/SideNav";
 
@@ -8,8 +9,10 @@ const DashboardLayout = ({ children }) => (
 
       <SideNav />
       <div className="w-full">
-      <div className="bg-[#191e3a] h-16"></div>
-        <div className={`min-h-[92vh] pt-4 ml-4`}>{children}</div>
+      <div className="bg-[#191e3a] h-16">
+        <UserProfile/>
+      </div>
+        <div className={`min-h-[92vh] pt-4`}>{children}</div>
         <Footer
           className="text-center mt-3 flex justify-center"
           showData
