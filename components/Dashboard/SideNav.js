@@ -2,12 +2,13 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import RevewsIcon from "assets/icons/RevewsIcon";
+import SideNavFooter from "components/SideNavFooter";
+import UserInfo from "components/UserInfo";
 import { Divide as Hamburger } from "hamburger-react";
 import { useCallback, useRef, useState } from "react";
-import {
-  MdDashboard, MdInsights
-} from "react-icons/md";
+import { MdDashboard, MdInsights } from "react-icons/md";
 import useClickOutside from "utils/useClickOutside";
+import userImage from "../../assets/images/user.jpg";
 import NavList from "./NavList";
 
 const NavData = [
@@ -38,20 +39,20 @@ const NavData = [
   //   path: "/review-request/all-request-emails",
   //   icon: MdNotificationsActive,
   //   children: [
-      // {
-      //   id: "4-1",
-      //   title: "All Request Emails",
-      //   path: "/review-request/all-request-emails",
-      //   icon: "",
-      //   children: [],
-      // },
-      // {
-      //   id: "4-2",
-      //   title: "All Request SMS",
-      //   path: "/review-request/all-request-sms",
-      //   icon: "",
-      //   children: [],
-      // },
+  // {
+  //   id: "4-1",
+  //   title: "All Request Emails",
+  //   path: "/review-request/all-request-emails",
+  //   icon: "",
+  //   children: [],
+  // },
+  // {
+  //   id: "4-2",
+  //   title: "All Request SMS",
+  //   path: "/review-request/all-request-sms",
+  //   icon: "",
+  //   children: [],
+  // },
   //     {
   //       id: "4-3",
   //       title: "Reminder Settings",
@@ -103,7 +104,6 @@ const NavData = [
   //   icon: MdScatterPlot,
   //   children: [],
   // },
-
 ];
 
 const SideNav = () => {
@@ -111,7 +111,8 @@ const SideNav = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(null);
   const NavPopover = useRef();
-  const toggleOpen = (id) => () => setIsOpen((isOpen) => (isOpen === id ? null : id));
+  const toggleOpen = (id) => () =>
+    setIsOpen((isOpen) => (isOpen === id ? null : id));
   const handleNavigation = () => {
     setNavigation((prevState) => !prevState);
   };
@@ -129,32 +130,51 @@ const SideNav = () => {
         className="lg:hidden block absolute right-3 top-2"
         ref={NavPopover}
       >
-        <Hamburger size='20' toggled={isNavOpen} distance="sm" toggle={setIsNavOpen} />
+        <Hamburger
+          size="20"
+          toggled={isNavOpen}
+          distance="sm"
+          toggle={setIsNavOpen}
+          color="#fff"
+        />
       </div>
       <div
-        className={`overflow-x-hidden w-55 py-4  bg-[#191e3a] fixed mt-[0] 2xl:block xl:block lg:block transition-all duration-300 ease-in-out 2xl:left-0 xl:left-0 lg:left-0 -left-[100%] ${
+        className={`overflow-x-hidden w-[18rem] py-4  bg-[#191e3a] fixed mt-[0] 2xl:block xl:block lg:block transition-all duration-300 ease-in-out 2xl:left-0 xl:left-0 lg:left-0 -left-[100%] ${
           navigation
             ? " left-[0%] transition-all duration-300 ease-in-out rounded-none m-0 top-0 z-100"
             : "-left-[100%] transition-all duration-300 ease-in-out mt-[0rem] -[mr-5.5625rem] z-100"
         }`}
         style={{
-          height: "-webkit-fill-available",zIndex:'2'
+          height: "-webkit-fill-available",
+          zIndex: "2",
         }}
       >
-        <ul className="">
-          {NavData.map((item, index) => (
-            <NavList
-              key={index}
-              item={item}
-              isOpen={isOpen === index}
-              toggle={toggleOpen(index)}
-            />
-          ))}
-        </ul>
+        <div className="">
+          <UserInfo
+            userName={"Hello, Marquez"}
+            userDesc={"marquezzzz@mail.com"}
+            userImage={userImage}
+          />
+          <ul className="">
+            {NavData.map((item, index) => (
+              <NavList
+                key={index}
+                item={item}
+                isOpen={isOpen === index}
+                toggle={toggleOpen(index)}
+              />
+            ))}
+          </ul>
+          <SideNavFooter
+            footerHeading={"Zenix Crypto Admin"}
+            footerInfo={"Dashboard"}
+            footeCredit={"© 2022 All Rights Reserved"}
+            footerDes={"Made with by DexignZone"}
+          />
+        </div>
       </div>
     </div>
   );
 };
 
 export default SideNav;
-

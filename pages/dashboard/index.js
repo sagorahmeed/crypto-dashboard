@@ -11,7 +11,7 @@ const Dashboard = () => {
   return (
     <>
 
-      <div className="2xl:ml-[14.25rem] xl:ml-[14.25rem] lg:ml-[14.25rem] ml-0 ">
+      <div className="2xl:ml-[16.25rem] xl:ml-[16.25rem] lg:ml-[16.25rem] ml-0 ">
     
 
         <h4 className="pb-[0.75rem] mt-1">
